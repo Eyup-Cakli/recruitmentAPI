@@ -22,7 +22,12 @@ const userSchema = new mongoose.Schema({
     userContactId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "userContactModel"
-    }
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    ...projectBaseModel
 },{timestamps: true});
 
 //fire a function before doc saved to db
