@@ -13,5 +13,5 @@ const userFileSchema = new mongoose.Schema({
     ...projectBaseSchema.obj
 });
 
-const userFileModel = mongoose.model("userFile", userFileSchema);
+const userFileModel = mongoose.model("userFiles", userFileSchema);
 module.exports = userFileModel;

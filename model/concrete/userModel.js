@@ -5,7 +5,7 @@ const projectBaseSchema = require("../projectBaseSchema.js");
 const userSchema = new mongoose.Schema({
     userFilesId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "userFileModel"
+        ref: "userFiles"
     },
     firstName: {
         type: String,
@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
     },
     userContactId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "userContactModel"
+        ref: "userContacts"
     },
     isAdmin: {
         type: Boolean,
@@ -51,5 +51,5 @@ userSchema.statics.login = async function(email, password) {
     throw Error("Incorrect email or password");
 };
 
-const userModel = mongoose.model("user", userSchema);
+const userModel = mongoose.model("users", userSchema);
 module.exports = userModel;

@@ -12,7 +12,7 @@ const userContactSchema = new mongoose.Schema({
     },
     cityId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "cityModel",
+        ref: "cities",
         required: [true, "You must be fill in this field."]
     },
     address: {
@@ -22,5 +22,5 @@ const userContactSchema = new mongoose.Schema({
     ...projectBaseSchema.obj
 });
 
-const userContactModel = mongoose.model("userContact", userContactSchema);
+const userContactModel = mongoose.model("userContacts", userContactSchema);
 module.exports = userContactModel;

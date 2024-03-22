@@ -15,5 +15,5 @@ const surverySchema = new mongoose.Schema({
     ...projectBaseSchema
 });
 
-const surveryModel = mongoose.model("survery", surverySchema);
+const surveryModel = mongoose.model("surverys", surverySchema);
 module.exports = surveryModel;

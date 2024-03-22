@@ -10,5 +10,5 @@ const citySchema = new mongoose.Schema({
     ...projectBaseSchema
 });
 
-const cityModel = mongoose.model("city", citySchema);
+const cityModel = mongoose.model("cities", citySchema);
 module.exports = cityModel;
