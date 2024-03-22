@@ -12,7 +12,7 @@ const surveryOptionSchema = new mongoose.Schema({
         maxlength: [50, "You have exceeded the maximum number of characters."],
         required: [true, "You must be fill in this field."]
     },
-    ...projectBaseSchema
+    ...projectBaseSchema.obj
 });
 
 const surveryOptionModel = new mongoose.model("surveryOptions", surveryOptionSchema);
