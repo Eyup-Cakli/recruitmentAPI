@@ -4,3 +4,5 @@ const projectBaseModel = {
         default: false
     }
 }
+
+module.exports = projectBaseModel;
