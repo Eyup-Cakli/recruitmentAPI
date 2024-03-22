@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const projectBaseSchema = require("../projectBaseSchema.js");
 
 const userSchema = new mongoose.Schema({
     userFilesId: {
@@ -27,8 +28,8 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    ...projectBaseModel
-},{timestamps: true});
+    ...projectBaseSchema.obj
+});
 
 //fire a function before doc saved to db
 userSchema.pre('save', async function (next){

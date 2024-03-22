@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const projectBaseSchema = require("../projectBaseSchema.js");
 
 const userFileSchema = new mongoose.Schema({
     cv: {
@@ -9,8 +10,8 @@ const userFileSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
-    ...projectBaseModel
-},{timestamps: true});
+    ...projectBaseSchema.obj
+});
 
 const userFileModel = mongoose.model("userFile", userFileSchema);
 module.exports = userFileModel;
