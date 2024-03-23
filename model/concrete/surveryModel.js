@@ -1,16 +1,17 @@
 const mongoose = require("mongoose");
 const projectBaseSchema = require("../projectBaseSchema.js");
+const Messages = require("../constant/messages.js");
 
 const surverySchema = new mongoose.Schema({
     title: {
         type: String,
-        required: [true, "You must be fill in this field."],
-        maxlength: [24, "You have exceeded the maximum number of characters."]
+        required: [true, Messages.mustBeFill],
+        maxlength: [24, Messages.exceeded]
     },
     description: {
         type: String,
-        required: [true, "You must be fill in this field."],
-        maxlength: [65, "You have exceeded the maximum number of characters."]
+        required: [true, Messages.mustBeFill],
+        maxlength: [65, Messages.exceeded]
     },
     ...projectBaseSchema.obj
 });

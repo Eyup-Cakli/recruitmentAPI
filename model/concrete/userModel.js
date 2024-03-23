@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const projectBaseSchema = require("../projectBaseSchema.js");
+const Messages = require("../constant/messages.js");
 
 const userSchema = new mongoose.Schema({
     userFilesId: {
@@ -9,15 +10,15 @@ const userSchema = new mongoose.Schema({
     },
     firstName: {
         type: String,
-        required: [true, "You must be fill in this field."]
+        required: [true, Messages.mustBeFill]
     },
     lastName: {
         type: String,
-        required: [true, "You must be fill in this field."]
+        required: [true, Messages.mustBeFill]
     },
     password: {
         type: String,
-        required: [true, "Ypu must be fill in this field."],
+        required: [true, Messages.mustBeFill],
         minlength: [6, "Min password length 6 characters."]
     },
     userContactId: {
@@ -46,9 +47,9 @@ userSchema.statics.login = async function(email, password) {
         if (auth) {
             return user;
         }
-        throw Error("Incorrect email or passord.");
+        throw Error(Messages.inorrectEmailOrPassword);
     }
-    throw Error("Incorrect email or password");
+    throw Error(Messages.inorrectEmailOrPassword);
 };
 
 const userModel = mongoose.model("users", userSchema);

@@ -1,23 +1,24 @@
 const mongoose = require("mongoose");
 const projectBaseSchema = require("../projectBaseSchema.js");
+const Messages = require("../constant/messages.js");
 
 const userContactSchema = new mongoose.Schema({
     cellPhone: {
         type: String,
-        required: [true, "You must be fill in this field."]
+        required: [true, Messages.mustBeFill]
     },
     email: {
         type: String,
-        required: [true, "You must be fill in this field."]
+        required: [true, Messages.mustBeFill]
     },
     cityId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "cities",
-        required: [true, "You must be fill in this field."]
+        required: [true, Messages.mustBeFill]
     },
     address: {
         type: String,
-        maxlength: [50, "You have exceeded the maximum number of characters."]
+        maxlength: [50, Messages.exceeded]
     },
     ...projectBaseSchema.obj
 });
