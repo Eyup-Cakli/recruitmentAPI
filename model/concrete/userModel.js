@@ -41,15 +41,20 @@ userSchema.pre('save', async function (next){
 
 //static method to login user
 userSchema.statics.login = async function(email, password) {
-    const user = await this.findOne({email});
-    if (user) {
-        const auth = await bcrypt.compare(password, user.password);
-        if (auth) {
-            return user;
+    const userContact = await mongoose.model('userContacts').findOne({email});
+
+    if (userContact) {
+        const user = await this.findOne({ userContactId: userContact._id });
+
+        if (user) {
+            const auth = await bcrypt.compare(password, user.password);
+            if (auth) {
+                return user;
+            }
+            throw Error(Messages.inorrectEmailOrPassword);
         }
         throw Error(Messages.inorrectEmailOrPassword);
     }
-    throw Error(Messages.inorrectEmailOrPassword);
 };
 
 const userModel = mongoose.model("users", userSchema);
